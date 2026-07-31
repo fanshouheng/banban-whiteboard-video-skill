@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banban 板书样片</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="studio">
+      <header class="toolbar">
+        <div>
+          <p class="project-name">板书样片 01</p>
+          <p class="project-state">预先展示内容，讲解时动态批注</p>
+        </div>
+
+        <div class="transport" aria-label="播放控制">
+          <button id="playButton" type="button">播放</button>
+          <button id="pauseButton" type="button">暂停</button>
+          <button id="replayButton" type="button">重播</button>
+          <input
+            id="timeline"
+            type="range"
+            min="0"
+            max="12"
+            step="0.01"
+            value="0"
+            aria-label="视频时间"
+          />
+          <output id="timecode" for="timeline">00:00 / 00:12</output>
+        </div>
+      </header>
+
+      <div id="stageShell" class="stage-shell">
+        <section id="stage" class="stage" aria-label="板书视频画面">
+          <img
+            class="board-background"
+            src="assets/whiteboard-bg.png"
+            alt="轻微侧视的真实白板"
+          />
+
+          <div id="boardPlane" class="board-plane">
+            <div class="board-copy">
+              <h1>为什么你一直在修改提示词？</h1>
+              <div class="title-rule"></div>
+
+              <section class="idea idea-left">
+                <p class="label">你以为</p>
+                <p id="promptProblem" class="main-point">提示词不够好</p>
+                <p class="supporting">于是不断重写、补充、再重试</p>
+              </section>
+
+              <div class="logic-arrow" aria-hidden="true">→</div>
+
+              <section class="idea idea-right">
+                <p class="label">真正的问题</p>
+                <p id="goalProblem" class="main-point">目标没有说清楚</p>
+                <p class="supporting">AI只能持续猜测你想要的结果</p>
+              </section>
+
+              <div class="process" aria-label="正确工作流程">
+                <span>需求</span>
+                <b>→</b>
+                <span class="process-focus">目标</span>
+                <b>→</b>
+                <span>提示词</span>
+                <b>→</b>
+                <span>验证</span>
+              </div>
+
+              <p id="finalNote" class="final-note">先明确目标，再写提示词</p>
+            </div>
+
+            <svg class="annotation-layer" viewBox="0 0 1000 600" aria-hidden="true">
+              <path
+                id="circlePath"
+                class="annotation"
+                d="M 56 231 C 74 193, 315 188, 386 213 C 433 230, 410 267, 329 276 C 213 289, 72 274, 56 244 C 53 239, 53 235, 56 231"
+              />
+              <path
+                id="underlinePath"
+                class="annotation"
+                d="M 557 277 C 654 270, 783 280, 917 270"
+              />
+              <path
+                id="writingGuide"
+                class="writing-guide"
+                d="M 300 526 C 420 522, 574 525, 714 521"
+              />
+            </svg>
+          </div>
+
+          <img id="drawingHand" class="drawing-hand" src="assets/hand-asian.png" alt="" />
+        </section>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

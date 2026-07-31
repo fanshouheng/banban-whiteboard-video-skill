@@ -1,0 +1,330 @@
+:root {
+  color-scheme: dark;
+  font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  background: #171816;
+  color: #f3f3ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #171816;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.studio {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 24px;
+  border-bottom: 1px solid #333530;
+  background: #1d1f1c;
+}
+
+.project-name,
+.project-state {
+  margin: 0;
+}
+
+.project-name {
+  color: #f4f4ef;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.project-state {
+  margin-top: 3px;
+  color: #9fa39a;
+  font-size: 12px;
+}
+
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.transport button {
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid #464942;
+  border-radius: 5px;
+  background: #292b27;
+  color: #f1f1ec;
+  cursor: pointer;
+}
+
+.transport button:hover {
+  background: #343730;
+}
+
+.transport button:focus-visible,
+.transport input:focus-visible {
+  outline: 2px solid #c94739;
+  outline-offset: 2px;
+}
+
+#timeline {
+  width: clamp(140px, 26vw, 360px);
+  accent-color: #c94739;
+}
+
+#timecode {
+  width: 92px;
+  color: #b9bcb4;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage-shell {
+  position: relative;
+  width: min(1280px, calc(100vw - 48px));
+  aspect-ratio: 16 / 9;
+  margin: 54px auto;
+  overflow: hidden;
+  background: #efeae0;
+  box-shadow: 0 18px 50px rgb(0 0 0 / 34%);
+}
+
+.stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  transform-origin: 0 0;
+  background: #eee8dc;
+}
+
+.board-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.board-plane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 600px;
+  transform-origin: 0 0;
+  color: #20201e;
+}
+
+.board-copy {
+  position: absolute;
+  inset: 0;
+}
+
+.board-copy h1 {
+  position: absolute;
+  top: 54px;
+  left: 78px;
+  width: 844px;
+  margin: 0;
+  color: #1d1d1b;
+  font-size: 55px;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.title-rule {
+  position: absolute;
+  top: 133px;
+  left: 80px;
+  width: 840px;
+  height: 2px;
+  background: rgb(42 42 39 / 22%);
+}
+
+.idea {
+  position: absolute;
+  top: 171px;
+}
+
+.idea-left {
+  left: 73px;
+  width: 350px;
+}
+
+.idea-right {
+  left: 552px;
+  width: 380px;
+}
+
+.label,
+.main-point,
+.supporting {
+  margin: 0;
+}
+
+.label {
+  color: #686861;
+  font-size: 26px;
+  font-weight: 650;
+}
+
+.main-point {
+  margin-top: 14px;
+  color: #20201d;
+  font-size: 46px;
+  font-weight: 760;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.supporting {
+  margin-top: 17px;
+  color: #595953;
+  font-size: 22px;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.logic-arrow {
+  position: absolute;
+  top: 211px;
+  left: 458px;
+  color: #85857d;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.process {
+  position: absolute;
+  top: 367px;
+  left: 112px;
+  width: 776px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 22px;
+  border-top: 2px solid rgb(38 38 35 / 30%);
+  border-bottom: 2px solid rgb(38 38 35 / 30%);
+  color: #292926;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.process b {
+  color: #8d8d84;
+  font-weight: 500;
+}
+
+.process-focus {
+  color: #b9342c;
+}
+
+.final-note {
+  position: absolute;
+  top: 484px;
+  left: 175px;
+  width: 650px;
+  margin: 0;
+  color: #1f1f1c;
+  font-family: KaiTi, STKaiti, "Microsoft YaHei", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0;
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+}
+
+.annotation-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.annotation {
+  fill: none;
+  stroke: #c83930;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+}
+
+.writing-guide {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 2;
+}
+
+.drawing-hand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(7px 9px 8px rgb(0 0 0 / 18%));
+  transform: translate(-3px, -35px);
+  will-change: left, top, opacity;
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .transport {
+    width: 100%;
+  }
+
+  .transport button {
+    padding: 0 10px;
+  }
+
+  #timeline {
+    min-width: 60px;
+    flex: 1;
+  }
+
+  #timecode {
+    width: 86px;
+  }
+
+  .stage-shell {
+    width: 100vw;
+    margin: 24px 0 0;
+  }
+}
