@@ -7,6 +7,7 @@ const BOARD_CORNERS = [
   { x: 1126, y: 635 },
   { x: 151, y: 665 },
 ];
+const IDLE_HAND_POSITION = { x: 1035, y: 490 };
 
 const stageShell = document.querySelector("#stageShell");
 const stage = document.querySelector("#stage");
@@ -77,9 +78,12 @@ function projectPoint(point) {
 function placeHandOnPath(path, progress) {
   const length = pathLengths.get(path);
   const point = path.getPointAtLength(length * clamp(progress));
-  const projected = projectPoint(point);
-  drawingHand.style.left = `${projected.x}px`;
-  drawingHand.style.top = `${projected.y}px`;
+  placeHand(projectPoint(point));
+}
+
+function placeHand(position) {
+  drawingHand.style.left = `${position.x}px`;
+  drawingHand.style.top = `${position.y}px`;
   drawingHand.style.opacity = "1";
 }
 
@@ -96,7 +100,7 @@ function setTime(time) {
   finalNote.style.opacity = writingProgress > 0 ? "1" : "0";
   finalNote.style.clipPath = `inset(0 ${(1 - writingProgress) * 100}% 0 0)`;
 
-  drawingHand.style.opacity = "0";
+  placeHand(IDLE_HAND_POSITION);
   if (currentTime >= 2.0 && currentTime <= 3.0) {
     placeHandOnPath(circlePath, circleProgress);
   } else if (currentTime >= 5.1 && currentTime <= 5.8) {
@@ -122,7 +126,6 @@ function tick(now) {
   setTime((now - startedAt) / 1000);
   if (currentTime >= DURATION) {
     isPlaying = false;
-    drawingHand.style.opacity = "0";
     return;
   }
 
