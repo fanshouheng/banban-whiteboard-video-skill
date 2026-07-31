@@ -55,7 +55,15 @@ button, input { font: inherit; }
   transform-origin: 0 0;
   background: #eee8dc;
 }
-.board-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; user-select: none; }
+.board-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.28) brightness(1.08) contrast(0.97);
+  user-select: none;
+}
 .board-plane { position: absolute; inset: 0 auto auto 0; width: 1000px; height: 600px; transform-origin: 0 0; color: #24211f; }
 
 .board-header { position: absolute; left: 60px; top: 38px; width: 875px; height: 105px; }

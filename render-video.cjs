@@ -69,8 +69,23 @@ async function main() {
     if (previewMode) {
       const previewDir = path.join(outputDir, "playwright");
       fs.mkdirSync(previewDir, { recursive: true });
-      for (const frame of [200, 3300, 4600, 5700, 7000, 8450, 9300, 10400, 11200, 12100, 12850]) {
+      for (const frame of [1500, 2700, 3850, 5200, 6030, 8100, 8620, 10080, 10730, 11720, 12420, 13110]) {
         await page.evaluate((nextFrame) => window.setRenderFrame(nextFrame), frame);
+        const diagnostics = await page.evaluate(() => window.getAnnotationDiagnostics());
+        for (const item of diagnostics) {
+          if (!item.targetBox) continue;
+          const targetBottom = item.targetBox.y + item.targetBox.height;
+          if (item.type === "underline" && Math.abs(item.pathBox.y - targetBottom) > 18) {
+            throw new Error(`Underline missed ${item.target} at frame ${frame}`);
+          }
+          if (item.type === "circle") {
+            const containsTarget = item.pathBox.x <= item.targetBox.x
+              && item.pathBox.y <= item.targetBox.y
+              && item.pathBox.x + item.pathBox.width >= item.targetBox.x + item.targetBox.width
+              && item.pathBox.y + item.pathBox.height >= targetBottom;
+            if (!containsTarget) throw new Error(`Circle missed ${item.target} at frame ${frame}: ${JSON.stringify(item)}`);
+          }
+        }
         await page.screenshot({ path: path.join(previewDir, `preview-${frame}.png`) });
       }
       console.log(previewDir);

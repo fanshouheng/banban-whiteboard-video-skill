@@ -52,7 +52,7 @@ function renderScene(scene) {
   sceneTitle.textContent = scene.title;
   sceneContent.className = `scene-content ${scene.layout}-layout`;
   sceneContent.innerHTML = sceneMarkup(scene);
-  annotationLayer.innerHTML = scene.annotations.map((annotation, index) => annotationMarkup(annotation, index)).join("");
+  annotationLayer.innerHTML = scene.annotations.map((annotation, index) => annotationMarkup(annotation, index, annotationPath(annotation))).join("");
   pathRecords = scene.annotations.map((annotation, index) => {
     const path = annotationLayer.querySelector(`[data-path-index="${index}"]`);
     return { annotation, path, length: path.getTotalLength() };
@@ -60,43 +60,98 @@ function renderScene(scene) {
 }
 
 function sceneMarkup(scene) {
-  const footer = scene.footer ? `<p class="footer-note">${scene.footer}</p>` : "";
+  const footer = scene.footer ? `<p class="footer-note"><span data-target="footer">${scene.footer}</span></p>` : "";
   if (scene.layout === "flow") {
-    const cards = scene.cards.map((card) => `<div class="flow-card ${card.tone || ""}">${card.text}</div>`).join('<span class="arrow">→</span>');
+    const cards = scene.cards.map((card, index) => `<div class="flow-card ${card.tone || ""}" data-target="card-${index}">${card.text}</div>`).join('<span class="arrow">→</span>');
     const denseClass = scene.cards.length > 4 ? " flow-dense" : "";
     return `<div class="flow-row${denseClass}">${cards}</div>${footer}`;
   }
   if (scene.layout === "list") {
-    return `<div class="threat-list">${scene.lines.map((line) => `<div>“${line}”</div>`).join("")}</div><div class="round-badge">${scene.badge}</div>${footer}`;
+    return `<div class="threat-list">${scene.lines.map((line, index) => `<div><span data-target="line-${index}">“${line}”</span></div>`).join("")}</div><div class="round-badge" data-target="badge">${scene.badge}</div>${footer}`;
   }
   if (scene.layout === "journey") {
-    const cards = scene.cards.map((card) => `<div class="topic-card ${card.tone || ""}">${card.text}</div>`).join('<span class="arrow">→</span>');
-    return `<div class="journey-row">${cards}</div><div class="big-quote">${scene.quote} <strong>${scene.strong}</strong></div>${footer}`;
+    const cards = scene.cards.map((card, index) => `<div class="topic-card ${card.tone || ""}" data-target="card-${index}">${card.text}</div>`).join('<span class="arrow">→</span>');
+    return `<div class="journey-row">${cards}</div><div class="big-quote">${scene.quote} <strong data-target="quote-strong">${scene.strong}</strong></div>${footer}`;
   }
   if (scene.layout === "split") {
-    return `<div class="panel"><span class="panel-label">${scene.leftLabel}</span><strong class="question">${scene.leftMain}</strong></div><div class="mini-grid">${scene.items.map((item) => `<div class="grid-card">${item}</div>`).join("")}</div>${footer}`;
+    return `<div class="panel" data-target="left-panel"><span class="panel-label">${scene.leftLabel}</span><strong class="question"><span data-target="left-main">${scene.leftMain}</span></strong></div><div class="mini-grid" data-target="right-grid">${scene.items.map((item, index) => `<div class="grid-card" data-target="right-item-${index}">${item}</div>`).join("")}</div>${footer}`;
   }
   if (scene.layout === "equation") {
-    return `<div class="equation-side">${scene.left}<strong>${scene.leftStrong}</strong></div><div class="not-equal">≠</div><div class="equation-side">${scene.right}<strong>${scene.rightStrong}</strong></div>${footer}`;
+    return `<div class="equation-side" data-target="left-side">${scene.left}<strong><span data-target="left-strong">${scene.leftStrong}</span></strong></div><div class="not-equal">≠</div><div class="equation-side" data-target="right-side">${scene.right}<strong><span data-target="right-strong">${scene.rightStrong}</span></strong></div>${footer}`;
   }
   if (scene.layout === "grid") {
-    return `<div class="grid-column"><h2>${scene.leftTitle}</h2><div class="grid-items">${scene.leftItems.map((item) => `<div class="grid-card">${item}</div>`).join("")}</div></div><div class="grid-column"><h2>${scene.rightTitle}</h2><div class="grid-items">${scene.rightItems.map((item) => `<div class="grid-card">${item}</div>`).join("")}</div></div>${footer}`;
+    return `<div class="grid-column"><h2><span data-target="left-title">${scene.leftTitle}</span></h2><div class="grid-items" data-target="left-items">${scene.leftItems.map((item, index) => `<div class="grid-card" data-target="left-item-${index}">${item}</div>`).join("")}</div></div><div class="grid-column"><h2><span data-target="right-title">${scene.rightTitle}</span></h2><div class="grid-items" data-target="right-items">${scene.rightItems.map((item, index) => `<div class="grid-card" data-target="right-item-${index}">${item}</div>`).join("")}</div></div>${footer}`;
   }
   if (scene.layout === "contrast") {
-    return `<div class="panel"><span class="panel-label">${scene.leftLabel || ""}</span><strong class="panel-main">${(scene.leftMain || "").replace("\n", "<br>")}</strong></div><div class="panel red"><span class="panel-label">${scene.rightLabel || ""}</span><strong class="panel-main">${(scene.rightMain || "").replace("\n", "<br>")}</strong></div>${footer}`;
+    return `<div class="panel" data-target="left-panel"><span class="panel-label">${scene.leftLabel || ""}</span><strong class="panel-main"><span data-target="left-main">${(scene.leftMain || "").replace("\n", "<br>")}</span></strong></div><div class="panel red" data-target="right-panel"><span class="panel-label">${scene.rightLabel || ""}</span><strong class="panel-main"><span data-target="right-main">${(scene.rightMain || "").replace("\n", "<br>")}</span></strong></div>${footer}`;
   }
   if (scene.layout === "audience") {
-    return `<div class="audience-lead">${scene.lead}</div><div class="audience-focus">${scene.focus}</div><div class="audience-cards">${scene.cards.map((card) => `<div class="topic-card ${card.tone || ""}">${card.text}</div>`).join("")}</div>${footer}`;
+    return `<div class="audience-lead"><span data-target="lead">${scene.lead}</span></div><div class="audience-focus"><span data-target="focus">${scene.focus}</span></div><div class="audience-cards">${scene.cards.map((card, index) => `<div class="topic-card ${card.tone || ""}" data-target="card-${index}">${card.text}</div>`).join("")}</div>${footer}`;
   }
   if (scene.layout === "statement") {
-    return `${scene.lines.map((line) => `<div class="statement-line ${line.tone || ""}">${line.text}</div>`).join("")}${footer}`;
+    return `${scene.lines.map((line, index) => `<div class="statement-line ${line.tone || ""}"><span data-target="line-${index}">${line.text}</span></div>`).join("")}${footer}`;
   }
-  return `<div class="final-kicker">${scene.kicker}</div>${scene.questions.map((question, index) => `<div class="final-question">${index + 1}. ${question}</div>`).join("")}<div class="episode">${scene.episode}</div>`;
+  return `<div class="final-kicker">${scene.kicker}</div>${scene.questions.map((question, index) => `<div class="final-question"><span data-target="question-${index}">${index + 1}. ${question}</span></div>`).join("")}<div class="episode"><span data-target="episode">${scene.episode}</span></div>`;
 }
 
-function annotationMarkup(annotation, index) {
+function annotationMarkup(annotation, index, pathData) {
   const text = annotation.type === "write" ? `<text class="written-note" x="${annotation.x}" y="${annotation.y}" data-note-index="${index}">${annotation.text}</text>` : "";
-  return `${text}<path class="annotation" data-path-index="${index}" d="${annotation.d}" />`;
+  return `${text}<path class="annotation" data-path-index="${index}" d="${pathData}" />`;
+}
+
+function annotationPath(annotation) {
+  if (annotation.type === "arrow" && annotation.from && annotation.to) {
+    const from = targetRect(annotation.from);
+    const to = targetRect(annotation.to);
+    const startX = from.x + from.width + 10;
+    const startY = from.y + from.height * 0.55;
+    const endX = to.x - 10;
+    const endY = to.y + to.height * 0.55;
+    const bend = Math.max(35, Math.abs(endX - startX) * 0.35);
+    return `M ${startX} ${startY} C ${startX + bend} ${startY + 18} ${endX - bend} ${endY + 18} ${endX} ${endY}`;
+  }
+  if (!annotation.target) return annotation.d;
+
+  const rect = targetRect(annotation.target);
+  const pad = annotation.pad ?? 12;
+  if (annotation.type === "underline") {
+    const x1 = rect.x - pad * 0.35;
+    const x2 = rect.x + rect.width + pad * 0.35;
+    const y = rect.y + rect.height + (annotation.offset ?? 8);
+    return `M ${x1} ${y} C ${x1 + (x2 - x1) * 0.28} ${y - 7} ${x1 + (x2 - x1) * 0.68} ${y + 5} ${x2} ${y - 3}`;
+  }
+
+  const x = rect.x - pad;
+  const y = rect.y - pad * 0.75;
+  const width = rect.width + pad * 2;
+  const height = rect.height + pad * 1.5;
+  return `M ${x} ${y + height * 0.55} C ${x - 2} ${y + height * 0.18} ${x + width * 0.24} ${y - 2} ${x + width * 0.57} ${y + 1} C ${x + width * 0.9} ${y - 2} ${x + width + 2} ${y + height * 0.24} ${x + width} ${y + height * 0.57} C ${x + width + 2} ${y + height * 0.9} ${x + width * 0.7} ${y + height + 2} ${x + width * 0.42} ${y + height - 1} C ${x + width * 0.12} ${y + height + 3} ${x - 2} ${y + height * 0.82} ${x} ${y + height * 0.55}`;
+}
+
+function targetRect(name) {
+  const target = boardPlane.querySelector(`[data-target="${name}"]`);
+  if (!target) throw new Error(`Annotation target was not found: ${name}`);
+
+  let x = 0;
+  let y = 0;
+  let element = target;
+  while (element && element !== boardPlane) {
+    x += element.offsetLeft;
+    y += element.offsetTop;
+    element = element.offsetParent;
+  }
+
+  element = target;
+  while (element && element !== boardPlane) {
+    const transform = getComputedStyle(element).transform;
+    if (transform && transform !== "none") {
+      const matrix = new DOMMatrixReadOnly(transform);
+      x += matrix.m41;
+      y += matrix.m42;
+    }
+    element = element.parentElement;
+  }
+  return { x, y, width: target.offsetWidth, height: target.offsetHeight };
 }
 
 function setFrame(frame) {
@@ -174,6 +229,15 @@ timelineInput.addEventListener("input", () => {
 
 window.setRenderFrame = (frame) => setFrame(frame);
 window.getRenderState = () => ({ frame: currentFrame, scene: currentScene?.number, durationInFrames: data?.durationInFrames });
+window.getAnnotationDiagnostics = () => pathRecords.map(({ annotation, path }) => {
+  const pathBox = path.getBBox();
+  return {
+    type: annotation.type,
+    target: annotation.target,
+    pathBox: { x: pathBox.x, y: pathBox.y, width: pathBox.width, height: pathBox.height },
+    targetBox: annotation.target ? targetRect(annotation.target) : null,
+  };
+});
 
 function fitStage() {
   if (document.body.classList.contains("render-mode")) {

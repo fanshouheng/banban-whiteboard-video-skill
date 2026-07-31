@@ -71,7 +71,9 @@ banban/
 - `title` 和各布局字段：页面上预先显示的板书。
 - `annotations`：讲到对应位置时出现的圈、线、箭头或补字。
 - `annotations[].start` / `end`：动作和口播对齐的帧范围。
-- `annotations[].d`：批注在白板坐标系中的 SVG 路径。
+- `annotations[].target`：圈或横线要跟随的板书元素，路径会按浏览器实际排版自动生成。
+- `annotations[].from` / `to`：箭头的起点和终点元素。
+- `annotations[].d`：补字动作或没有目标元素时使用的手绘路径。
 
 画面模板放在 `index.html`、`styles.css` 和 `app.js`。更换小人时替换 `assets/teacher-doodle.svg`，并检查 `styles.css` 中 `.drawing-teacher` 的尺寸和偏移，保证笔尖仍能对准路径。
 
