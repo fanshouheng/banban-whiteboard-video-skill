@@ -2,11 +2,12 @@
 
 这是一个由 ChatCut 成片音频和时间戳驱动的 HTML 白板视频。
 
-当前版本对应 ChatCut 时间线 `白板讲课版`，共 12 页、`7 分 19 秒`。每页大部分板书会直接显示，讲到重点时再由右下角的小人移动过去画圈、划线、画箭头或补字。
+当前版本对应 ChatCut 时间线 `拒绝AI焦虑｜3分钟白板版`，共 8 页，白板主体 `3 分 05.7 秒`。每页大部分板书会直接显示，讲到重点时再由右下角的小人移动过去画圈、划线、画箭头或补字。
 
 ## 成片
 
-- 视频：`output/whiteboard-final.mp4`
+- 最终视频（含开场）：`output/whiteboard-with-intro.mp4`
+- 白板主体：`output/whiteboard-final.mp4`
 - 音频：`output/voiceover.mp3`
 - 输出规格：`1920 × 1080`、`30 fps`、H.264 + AAC
 
@@ -55,7 +56,7 @@ banban/
 |-- index.html                  # 播放界面和白板画布
 |-- styles.css                 # 白板排版、透视画面和小人样式
 |-- app.js                     # 时间轴播放、场景渲染和批注动画
-|-- timeline.json              # 12 页板书内容、时间和批注动作
+|-- timeline.json              # 8 页板书内容、时间和批注动作
 |-- render-video.cjs           # Playwright 抓帧并用 FFmpeg 合成
 |-- assets/
 |   |-- whiteboard-bg.png      # 略带侧视角的白板背景

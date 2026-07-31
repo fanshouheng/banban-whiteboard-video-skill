@@ -8,9 +8,10 @@ const root = __dirname;
 const outputDir = path.join(root, "output");
 const audioPath = path.join(outputDir, "voiceover.mp3");
 const videoPath = path.join(outputDir, "whiteboard-final.mp4");
-const sourceFps = 30;
+const timeline = JSON.parse(fs.readFileSync(path.join(root, "timeline.json"), "utf8"));
+const sourceFps = timeline.fps;
 const renderFps = 15;
-const durationInFrames = 13159;
+const durationInFrames = timeline.durationInFrames;
 const durationSeconds = durationInFrames / sourceFps;
 const renderFrames = Math.ceil(durationSeconds * renderFps);
 const previewMode = process.argv.includes("--preview");
@@ -69,7 +70,11 @@ async function main() {
     if (previewMode) {
       const previewDir = path.join(outputDir, "playwright");
       fs.mkdirSync(previewDir, { recursive: true });
-      for (const frame of [1500, 2700, 3850, 5200, 6030, 8100, 8620, 10080, 10730, 11720, 12420, 13110]) {
+      const previewFrames = timeline.scenes.flatMap((scene) => [
+        Math.min(scene.end - 1, scene.start + Math.round((scene.end - scene.start) * 0.5)),
+        Math.min(scene.end - 1, Math.max(...scene.annotations.map((annotation) => annotation.end))),
+      ]);
+      for (const frame of previewFrames) {
         await page.evaluate((nextFrame) => window.setRenderFrame(nextFrame), frame);
         const diagnostics = await page.evaluate(() => window.getAnnotationDiagnostics());
         for (const item of diagnostics) {

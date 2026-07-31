@@ -1,19 +1,156 @@
 {
   "fps": 30,
-  "durationInFrames": 13159,
-  "source": "ChatCut timeline 1745eb97-1a63-460a-8832-7e7a3fe36dc8",
+  "durationInFrames": 5572,
+  "source": "ChatCut timeline acc1b6fe-5a59-43fd-bd91-52ff49d7f473",
   "scenes": [
-    {"number":"01","title":"AI 热潮的固定循环","start":0,"end":1660,"layout":"flow","cards":[{"text":"新工具出现"},{"text":"全网展示","tone":"red"},{"text":"制造焦虑"}],"footer":"看起来每次都不同，其实循环一直没变","annotations":[{"type":"circle","target":"card-1","pad":13,"start":220,"end":410,"d":"M 366 262 C 390 216 642 216 670 260 C 690 300 645 322 520 322 C 405 322 350 303 366 262"},{"type":"underline","target":"footer","start":760,"end":900,"d":"M 485 430 C 600 420 745 430 868 421"},{"type":"write","start":1180,"end":1360,"d":"M 700 512 C 760 505 830 510 892 505","text":"焦虑 +1","x":704,"y":498}]},
-    {"number":"02","title":"倒计时式恐吓","start":1660,"end":2780,"layout":"list","lines":["三个月后，你就会失业","一批职业马上消失","现在不上车，就错过机会"],"badge":"倒计时","footer":"恐惧先到，答案往往没到","annotations":[{"type":"underline","target":"line-0","start":1800,"end":1950,"d":"M 70 258 C 220 248 430 258 560 250"},{"type":"underline","target":"line-1","start":2160,"end":2310,"d":"M 70 356 C 240 346 430 356 570 348"},{"type":"circle","target":"line-2","pad":11,"start":2490,"end":2660,"d":"M 66 424 C 108 390 535 388 590 424 C 625 453 558 474 330 474 C 120 475 33 455 66 424"}]},
-    {"number":"03","title":"两年前，我也是新手","start":2780,"end":3956,"layout":"journey","cards":[{"text":"普通新手"},{"text":"光标闪烁"},{"text":"第一个网站","tone":"red"},{"text":"惊为天人"}],"quote":"那一刻，我以为：","strong":"“我会了。”","footer":"其实只是刚刚推开门","annotations":[{"type":"circle","target":"card-2","pad":12,"start":3070,"end":3240,"d":"M 475 244 C 496 205 721 205 744 245 C 758 278 715 294 610 294 C 504 294 460 278 475 244"},{"type":"underline","target":"quote-strong","start":3450,"end":3580,"d":"M 394 430 C 495 420 610 428 700 420"},{"type":"write","start":3730,"end":3860,"d":"M 710 515 C 770 505 850 511 910 506","text":"只是起点","x":714,"y":499}]},
-    {"number":"04","title":"Demo 之后怎么办？","start":3956,"end":5337,"layout":"split","leftLabel":"能做出 Demo","leftMain":"然后呢？","items":["部署","域名","GitHub","数据库"],"footer":"真正的开发，从 Demo 后面开始","annotations":[{"type":"circle","target":"left-main","pad":15,"start":4190,"end":4380,"d":"M 95 294 C 118 242 405 240 438 292 C 458 334 402 353 265 353 C 129 353 72 333 95 294"},{"type":"arrow","from":"left-panel","to":"right-grid","start":4620,"end":4780,"d":"M 446 326 C 520 333 548 296 604 279"},{"type":"underline","target":"footer","start":5050,"end":5190,"d":"M 455 485 C 590 475 780 485 890 475"}]},
-    {"number":"05","title":"AI 只是工具","start":5337,"end":6116,"layout":"equation","left":"跨过","leftStrong":"第一道门槛","right":"自动走到","rightStrong":"终点","footer":"AI 能帮你走，但不能替你走完","annotations":[{"type":"circle","target":"left-strong","pad":15,"start":5490,"end":5650,"d":"M 56 360 C 86 300 398 298 430 365 C 452 420 398 445 245 445 C 93 445 33 420 56 360"},{"type":"underline","target":"right-strong","start":5770,"end":5880,"d":"M 635 342 C 720 331 842 342 910 334"},{"type":"write","start":5940,"end":6050,"d":"M 352 504 C 470 493 620 503 742 494","text":"别把工具当终点","x":358,"y":487}]},
-    {"number":"06","title":"工具在变，问题没变","start":6116,"end":8247,"layout":"grid","leftTitle":"工具每个月都在变","leftItems":["模型更新","工作流更新","平台更新"],"rightTitle":"但新手的问题没变","rightItems":["注册","部署","域名","后端","UI","上线"],"footer":"难的不是追新，而是把旧问题解决掉","annotations":[{"type":"underline","target":"right-title","start":6430,"end":6610,"d":"M 506 211 C 625 201 794 211 895 202"},{"type":"circle","target":"right-items","pad":14,"start":7100,"end":7330,"d":"M 488 245 C 530 206 935 207 954 338 C 972 453 545 473 493 389 C 468 349 470 280 488 245"},{"type":"underline","target":"footer","start":7790,"end":7960,"d":"M 235 505 C 405 491 660 505 824 493"}]},
-    {"number":"07","title":"AI 破圈的两面","start":8247,"end":8667,"layout":"contrast","leftLabel":"AI 帮你快速做出","leftMain":"第一屏\n第一个 Demo","rightLabel":"接着出现","rightMain":"下一批问题","footer":"第一个 Demo 不是终点","annotations":[{"type":"arrow","from":"left-panel","to":"right-panel","start":8310,"end":8400,"d":"M 445 390 C 522 483 658 477 720 392"},{"type":"circle","target":"right-panel","pad":11,"start":8420,"end":8525,"d":"M 598 232 C 628 198 927 198 946 306 C 959 397 632 420 598 348 C 580 312 580 262 598 232"},{"type":"write","start":8550,"end":8635,"d":"M 382 518 C 455 510 535 516 607 509","text":"不是终点","x":386,"y":500}]},
-    {"number":"08","title":"我应该拍什么？","start":8667,"end":10225,"layout":"audience","lead":"我不需要假装站在终点讲课","focus":"我只要讲给过去的自己","cards":[{"text":"两年前的我"},{"text":"两个月前的我","tone":"blue"},{"text":"两天前的我","tone":"red"}],"footer":"刚踩过的坑，就是最真实的内容","annotations":[{"type":"underline","target":"lead","start":8920,"end":9100,"d":"M 225 285 C 400 271 648 285 805 272"},{"type":"circle","target":"focus","pad":14,"start":9360,"end":9600,"d":"M 90 342 C 135 297 875 296 914 356 C 942 401 856 423 502 423 C 170 424 48 400 90 342"},{"type":"write","start":9880,"end":10050,"d":"M 692 510 C 758 501 850 509 913 501","text":"先讲真实的","x":696,"y":493}]},
-    {"number":"09","title":"焦虑会过期","start":10225,"end":10774,"layout":"contrast","leftMain":"焦虑\n会过期","rightMain":"解决办法\n会留下来","footer":"所以，我决定记录“怎么解决”","annotations":[{"type":"underline","target":"left-main","start":10310,"end":10420,"d":"M 130 335 C 230 323 356 339 430 325"},{"type":"circle","target":"right-panel","pad":11,"start":10445,"end":10590,"d":"M 545 214 C 580 174 925 176 948 310 C 966 423 590 445 548 366 C 525 325 525 250 545 214"},{"type":"underline","target":"footer","start":10640,"end":10735,"d":"M 260 500 C 404 487 638 501 775 489"}]},
-    {"number":"10","title":"记录真实开发过程","start":10774,"end":11877,"layout":"flow","cards":[{"text":"遇到问题"},{"text":"问 AI"},{"text":"开始尝试"},{"text":"失败","tone":"red"},{"text":"换个办法","tone":"blue"},{"text":"解决","tone":"red"}],"footer":"不删掉失败，失败本身就是教程","annotations":[{"type":"circle","target":"card-3","pad":12,"start":10960,"end":11110,"d":"M 625 232 C 646 199 815 198 835 234 C 850 266 810 283 731 283 C 650 283 610 267 625 232"},{"type":"arrow","from":"card-3","to":"card-4","start":11250,"end":11420,"d":"M 735 294 C 690 425 506 456 374 385"},{"type":"circle","target":"card-5","pad":12,"start":11550,"end":11700,"d":"M 520 358 C 545 323 750 323 777 362 C 795 397 751 416 650 416 C 548 416 503 397 520 358"}]},
-    {"number":"11","title":"不被热潮赶着跑","start":11877,"end":12487,"layout":"statement","lines":[{"text":"不追每一波热潮"},{"text":"什么时候用得到","tone":"red"},{"text":"什么时候学","tone":"blue"}],"footer":"按需学习，才走得久","annotations":[{"type":"underline","target":"line-0","start":11980,"end":12110,"d":"M 205 303 C 380 287 645 305 790 290"},{"type":"underline","target":"line-1","start":12150,"end":12270,"d":"M 322 393 C 438 381 608 394 710 382"},{"type":"write","start":12320,"end":12425,"d":"M 690 506 C 752 498 830 505 894 498","text":"按需学习","x":694,"y":488}]},
-    {"number":"12","title":"这就是第 0 集","start":12487,"end":13159,"layout":"final","kicker":"我只回答两个问题：","questions":["你想用 AI 做什么？","卡住后，下一步怎么走？"],"episode":"第 0 集","annotations":[{"type":"circle","target":"question-0","pad":12,"start":12580,"end":12730,"d":"M 92 324 C 124 286 666 285 696 329 C 719 366 657 385 394 385 C 150 386 62 367 92 324"},{"type":"circle","target":"question-1","pad":12,"start":12800,"end":12955,"d":"M 90 408 C 126 370 762 369 795 414 C 819 452 745 472 444 472 C 160 473 58 452 90 408"},{"type":"underline","target":"episode","start":13015,"end":13110,"d":"M 732 522 C 790 514 865 521 917 514"}]}
+    {
+      "number": "01",
+      "title": "有段时间，我被 AI 搞得睡不着",
+      "start": 0,
+      "end": 369,
+      "layout": "journey",
+      "cards": [
+        {"text": "半夜刷 AI"},
+        {"text": "别人又做出了什么"},
+        {"text": "我是不是落后了", "tone": "red"}
+      ],
+      "quote": "甚至想：",
+      "strong": "“爬起来也折腾点东西”",
+      "footer": "焦虑先把人从床上叫醒",
+      "annotations": [
+        {"type": "underline", "target": "card-1", "start": 110, "end": 190},
+        {"type": "circle", "target": "card-2", "pad": 12, "start": 205, "end": 290},
+        {"type": "underline", "target": "quote-strong", "start": 300, "end": 355}
+      ]
+    },
+    {
+      "number": "02",
+      "title": "后来我发现：每一轮都在重复",
+      "start": 369,
+      "end": 645,
+      "layout": "flow",
+      "cards": [
+        {"text": "新工具出现"},
+        {"text": "全网展示"},
+        {"text": "再不上车就晚了", "tone": "red"}
+      ],
+      "footer": "工具不同，制造焦虑的流程没变",
+      "annotations": [
+        {"type": "circle", "target": "card-0", "pad": 11, "start": 430, "end": 490},
+        {"type": "arrow", "from": "card-0", "to": "card-2", "start": 500, "end": 555},
+        {"type": "underline", "target": "card-2", "start": 565, "end": 630}
+      ]
+    },
+    {
+      "number": "03",
+      "title": "我不想再催你追下一款 AI",
+      "start": 645,
+      "end": 1096,
+      "layout": "grid",
+      "leftTitle": "工具一直在换",
+      "leftItems": ["模型", "平台", "工作流"],
+      "rightTitle": "普通人卡住的还是",
+      "rightItems": ["注册", "使用", "部署", "上线", "域名", "数据库"],
+      "footer": "只讲每一轮都会重复的流程和坑",
+      "annotations": [
+        {"type": "underline", "target": "right-title", "start": 720, "end": 790},
+        {"type": "circle", "target": "right-items", "pad": 12, "start": 800, "end": 900},
+        {"type": "underline", "target": "footer", "start": 960, "end": 1060}
+      ]
+    },
+    {
+      "number": "04",
+      "title": "两年前，我就是那个新手",
+      "start": 1096,
+      "end": 1829,
+      "layout": "journey",
+      "cards": [
+        {"text": "不会写代码"},
+        {"text": "第一次用 Cursor"},
+        {"text": "做出第一个项目", "tone": "red"}
+      ],
+      "quote": "那一刻真的：",
+      "strong": "“惊为天人”",
+      "footer": "不懂编程，也能把脑子里的想法做出来",
+      "annotations": [
+        {"type": "circle", "target": "card-0", "pad": 12, "start": 1220, "end": 1310},
+        {"type": "underline", "target": "card-2", "start": 1470, "end": 1580},
+        {"type": "circle", "target": "quote-strong", "pad": 12, "start": 1660, "end": 1760}
+      ]
+    },
+    {
+      "number": "05",
+      "title": "网站做完之后，问题才刚开始",
+      "start": 1829,
+      "end": 2731,
+      "layout": "split",
+      "leftLabel": "第一个网站",
+      "leftMain": "怎么给别人用？",
+      "items": ["部署", "国内访问", "域名解析", "GitHub / 数据库"],
+      "footer": "Demo 只是推开门，后面的坑要一个个过",
+      "annotations": [
+        {"type": "circle", "target": "left-main", "pad": 13, "start": 1930, "end": 2040},
+        {"type": "arrow", "from": "left-panel", "to": "right-grid", "start": 2110, "end": 2210},
+        {"type": "circle", "target": "right-grid", "pad": 12, "start": 2360, "end": 2490},
+        {"type": "underline", "target": "footer", "start": 2570, "end": 2680}
+      ]
+    },
+    {
+      "number": "06",
+      "title": "AI 把你送到下一批问题面前",
+      "start": 2731,
+      "end": 3509,
+      "layout": "contrast",
+      "leftLabel": "AI 帮你快速做出",
+      "leftMain": "第一屏\n第一个 Demo",
+      "rightLabel": "接着出现",
+      "rightMain": "下一批问题",
+      "footer": "我的优势，只是比新手多踩了两年的坑",
+      "annotations": [
+        {"type": "arrow", "from": "left-panel", "to": "right-panel", "start": 2840, "end": 2940},
+        {"type": "circle", "target": "right-panel", "pad": 11, "start": 2960, "end": 3070},
+        {"type": "underline", "target": "footer", "start": 3220, "end": 3380}
+      ]
+    },
+    {
+      "number": "07",
+      "title": "焦虑会过期，解决办法会留下",
+      "start": 3509,
+      "end": 4873,
+      "layout": "flow",
+      "cards": [
+        {"text": "遇到问题"},
+        {"text": "问 AI"},
+        {"text": "试办法"},
+        {"text": "失败", "tone": "red"},
+        {"text": "继续改", "tone": "blue"},
+        {"text": "真实复盘", "tone": "red"}
+      ],
+      "footer": "不站在终点装懂，只记录正在经历的过程",
+      "annotations": [
+        {"type": "underline", "target": "footer", "start": 3650, "end": 3790},
+        {"type": "circle", "target": "card-3", "pad": 11, "start": 3920, "end": 4040},
+        {"type": "arrow", "from": "card-3", "to": "card-4", "start": 4110, "end": 4230},
+        {"type": "circle", "target": "card-5", "pad": 11, "start": 4510, "end": 4660}
+      ]
+    },
+    {
+      "number": "08",
+      "title": "第 0 集：真正重要的是下一步",
+      "start": 4873,
+      "end": 5572,
+      "layout": "final",
+      "kicker": "不用被热潮赶着跑",
+      "questions": [
+        "你想用 AI 做什么？",
+        "卡住以后，下一步怎么走？"
+      ],
+      "episode": "下一条：Demo → 产品",
+      "annotations": [
+        {"type": "circle", "target": "question-0", "pad": 12, "start": 4930, "end": 5050},
+        {"type": "circle", "target": "question-1", "pad": 12, "start": 5110, "end": 5240},
+        {"type": "underline", "target": "episode", "start": 5340, "end": 5500}
+      ]
+    }
   ]
 }
