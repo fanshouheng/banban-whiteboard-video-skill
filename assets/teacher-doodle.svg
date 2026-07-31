@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 240" role="img" aria-label="举笔讲解的手绘小人">
+  <g fill="none" stroke="#242321" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Marker and raised hand. The marker tip at 29,7 is the animation anchor. -->
+    <path d="M29 7 C28 23 29 40 31 58 C32 72 31 88 32 105" stroke-width="10"/>
+    <path d="M27 7 L31 7" stroke="#b83a31" stroke-width="5"/>
+    <path d="M32 91 C38 88 42 91 43 98" stroke-width="7"/>
+
+    <!-- Head and face. -->
+    <path d="M50 92 C52 57 83 37 119 38 C157 39 183 62 185 96 C187 130 164 151 124 154 C84 157 52 138 48 107 C47 101 48 96 50 92 Z" fill="#f8f5ed" stroke-width="7"/>
+    <path d="M85 89 C91 81 99 81 105 88" stroke-width="7"/>
+    <path d="M137 88 C143 80 151 81 156 89" stroke-width="7"/>
+    <path d="M92 115 C101 129 123 136 140 116" stroke-width="7"/>
+    <path d="M72 53 L63 43 M113 38 L113 27 M155 51 L165 40" stroke-width="6"/>
+
+    <!-- Body, raised arm, resting arm and legs. -->
+    <path d="M76 139 C66 131 55 118 44 103 L34 97" stroke-width="8"/>
+    <path d="M113 155 C112 173 111 188 110 204" stroke-width="8"/>
+    <path d="M111 173 C127 169 139 172 148 181 C142 191 136 197 128 201" stroke-width="8"/>
+    <path d="M110 203 C98 214 91 224 86 234" stroke-width="8"/>
+    <path d="M111 203 C128 212 142 222 152 234" stroke-width="8"/>
+  </g>
+</svg>

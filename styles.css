@@ -288,13 +288,13 @@ input {
   position: absolute;
   top: 0;
   left: 0;
-  width: 180px;
-  height: 180px;
+  width: 132px;
+  height: 144px;
   object-fit: contain;
   opacity: 0;
   pointer-events: none;
-  filter: drop-shadow(7px 9px 8px rgb(0 0 0 / 18%));
-  transform: translate(-3px, -35px);
+  filter: drop-shadow(3px 5px 3px rgb(0 0 0 / 16%));
+  transform: translate(-17px, -4px);
   will-change: left, top, opacity;
 }
 
