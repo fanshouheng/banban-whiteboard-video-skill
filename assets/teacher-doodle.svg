@@ -1,22 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 240" role="img" aria-label="举笔讲解的手绘小人">
-  <g fill="none" stroke="#242321" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Marker and raised hand. The marker tip at 29,7 is the animation anchor. -->
-    <path d="M29 7 C28 23 29 40 31 58 C32 72 31 88 32 105" stroke-width="10"/>
-    <path d="M27 7 L31 7" stroke="#b83a31" stroke-width="5"/>
-    <path d="M32 91 C38 88 42 91 43 98" stroke-width="7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 260">
+  <defs>
+    <filter id="rough" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="2" seed="9" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g fill="none" stroke="#292220" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+    <!-- Long, uneven marker. Its top at 29,7 remains the animation anchor. -->
+    <path d="M29 7 C27 20 29 35 30 49 C32 66 30 84 31 101 C32 119 30 134 31 147" stroke-width="10"/>
+    <path d="M27 9 C30 8 32 9 33 12 M30 47 C33 63 32 79 32 94 M29 137 C32 141 33 144 31 148" stroke-width="4"/>
 
-    <!-- Head and face. -->
-    <path d="M50 92 C52 57 83 37 119 38 C157 39 183 62 185 96 C187 130 164 151 124 154 C84 157 52 138 48 107 C47 101 48 96 50 92 Z" fill="#f8f5ed" stroke-width="7"/>
-    <path d="M85 89 C91 81 99 81 105 88" stroke-width="7"/>
-    <path d="M137 88 C143 80 151 81 156 89" stroke-width="7"/>
-    <path d="M92 115 C101 129 123 136 140 116" stroke-width="7"/>
-    <path d="M72 53 L63 43 M113 38 L113 27 M155 51 L165 40" stroke-width="6"/>
+    <!-- Raised hand meeting the marker. -->
+    <path d="M31 93 C38 94 40 103 45 112" stroke-width="7"/>
 
-    <!-- Body, raised arm, resting arm and legs. -->
-    <path d="M76 139 C66 131 55 118 44 103 L34 97" stroke-width="8"/>
-    <path d="M113 155 C112 173 111 188 110 204" stroke-width="8"/>
-    <path d="M111 173 C127 169 139 172 148 181 C142 191 136 197 128 201" stroke-width="8"/>
-    <path d="M110 203 C98 214 91 224 86 234" stroke-width="8"/>
-    <path d="M111 203 C128 212 142 222 152 234" stroke-width="8"/>
+    <!-- Irregular head copied from the original doodle proportions. -->
+    <path d="M43 104 C44 84 64 68 91 65 C119 61 143 72 152 91 C161 110 151 130 129 141 C108 151 80 149 60 139 C47 132 39 116 43 104 Z" stroke-width="8"/>
+    <path d="M66 70 C59 67 54 64 49 61 M93 64 C86 61 81 57 77 53 M124 66 C126 58 128 53 132 49" stroke-width="6"/>
+
+    <!-- Uneven closed eyes and smile. -->
+    <path d="M65 95 C71 88 80 89 86 96 C87 98 86 101 84 102" stroke-width="8"/>
+    <path d="M112 93 C118 85 127 87 134 94" stroke-width="8"/>
+    <path d="M70 116 C78 127 89 133 100 133 C112 133 122 127 127 117" stroke-width="7"/>
+
+    <!-- Crooked body, bent arm and asymmetric legs. -->
+    <path d="M92 149 C91 168 89 188 86 205" stroke-width="8"/>
+    <path d="M58 139 C65 153 73 166 82 176" stroke-width="8"/>
+    <path d="M99 176 C109 176 118 181 120 187 C116 195 109 201 101 205" stroke-width="8"/>
+    <path d="M87 204 C82 219 80 236 81 250" stroke-width="8"/>
+    <path d="M87 204 C102 217 116 234 128 255" stroke-width="8"/>
   </g>
 </svg>
