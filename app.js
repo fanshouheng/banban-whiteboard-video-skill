@@ -50,6 +50,8 @@ function renderScene(scene) {
   currentScene = scene;
   sceneNumber.textContent = scene.number;
   sceneTitle.textContent = scene.title;
+  sceneTitle.classList.toggle("long-title", scene.title.length > 17);
+  sceneTitle.classList.toggle("extra-long-title", scene.title.length > 23);
   sceneContent.className = `scene-content ${scene.layout}-layout`;
   sceneContent.innerHTML = sceneMarkup(scene);
   annotationLayer.innerHTML = scene.annotations.map((annotation, index) => annotationMarkup(annotation, index, annotationPath(annotation))).join("");
@@ -74,7 +76,8 @@ function sceneMarkup(scene) {
     return `<div class="journey-row">${cards}</div><div class="big-quote">${scene.quote} <strong data-target="quote-strong">${scene.strong}</strong></div>${footer}`;
   }
   if (scene.layout === "split") {
-    return `<div class="panel" data-target="left-panel"><span class="panel-label">${scene.leftLabel}</span><strong class="question"><span data-target="left-main">${scene.leftMain}</span></strong></div><div class="mini-grid" data-target="right-grid">${scene.items.map((item, index) => `<div class="grid-card" data-target="right-item-${index}">${item}</div>`).join("")}</div>${footer}`;
+    const denseClass = scene.items.length > 4 ? " dense" : "";
+    return `<div class="panel" data-target="left-panel"><span class="panel-label">${scene.leftLabel}</span><strong class="question"><span data-target="left-main">${scene.leftMain}</span></strong></div><div class="mini-grid${denseClass}" data-target="right-grid">${scene.items.map((item, index) => `<div class="grid-card" data-target="right-item-${index}">${item}</div>`).join("")}</div>${footer}`;
   }
   if (scene.layout === "equation") {
     return `<div class="equation-side" data-target="left-side">${scene.left}<strong><span data-target="left-strong">${scene.leftStrong}</span></strong></div><div class="not-equal">≠</div><div class="equation-side" data-target="right-side">${scene.right}<strong><span data-target="right-strong">${scene.rightStrong}</span></strong></div>${footer}`;

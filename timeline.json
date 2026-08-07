@@ -1,155 +1,262 @@
 {
   "fps": 30,
-  "durationInFrames": 5572,
-  "source": "ChatCut timeline acc1b6fe-5a59-43fd-bd91-52ff49d7f473",
+  "durationInFrames": 6543,
+  "source": "ChatCut project 98debfdd-97d8-4574-893f-a6ea013eb8cc / cleaned narration",
   "scenes": [
     {
       "number": "01",
-      "title": "有段时间，我被 AI 搞得睡不着",
+      "title": "每一轮 AI 爆火，新手都在问什么？",
       "start": 0,
-      "end": 369,
-      "layout": "journey",
-      "cards": [
-        {"text": "半夜刷 AI"},
-        {"text": "别人又做出了什么"},
-        {"text": "我是不是落后了", "tone": "red"}
+      "end": 199,
+      "layout": "list",
+      "lines": [
+        "01  工具在哪下载、怎么用？",
+        "02  提示词该怎么写？",
+        "03  做出来后怎么部署上线？",
+        "04  界面太丑该怎么改？"
       ],
-      "quote": "甚至想：",
-      "strong": "“爬起来也折腾点东西”",
-      "footer": "焦虑先把人从床上叫醒",
+      "badge": "问题\n没变",
+      "footer": "工具一直在换，新手卡住的问题高度重复",
       "annotations": [
-        {"type": "underline", "target": "card-1", "start": 110, "end": 190},
-        {"type": "circle", "target": "card-2", "pad": 12, "start": 205, "end": 290},
-        {"type": "underline", "target": "quote-strong", "start": 300, "end": 355}
+        {"type": "underline", "target": "line-0", "start": 28, "end": 64},
+        {"type": "circle", "target": "line-1", "pad": 9, "start": 68, "end": 103},
+        {"type": "underline", "target": "line-2", "start": 108, "end": 143},
+        {"type": "circle", "target": "line-3", "pad": 9, "start": 148, "end": 184}
       ]
     },
     {
       "number": "02",
-      "title": "后来我发现：每一轮都在重复",
-      "start": 369,
-      "end": 645,
+      "title": "工具一直在换，问题几乎没变",
+      "start": 199,
+      "end": 765,
       "layout": "flow",
       "cards": [
-        {"text": "新工具出现"},
-        {"text": "全网展示"},
-        {"text": "再不上车就晚了", "tone": "red"}
+        {"text": "Cursor"},
+        {"text": "Codex"},
+        {"text": "Gemini"},
+        {"text": "豆包"},
+        {"text": "新手问题", "tone": "red"}
       ],
-      "footer": "工具不同，制造焦虑的流程没变",
+      "footer": "每一批新人，最后卡住的地方都差不多",
       "annotations": [
-        {"type": "circle", "target": "card-0", "pad": 11, "start": 430, "end": 490},
-        {"type": "arrow", "from": "card-0", "to": "card-2", "start": 500, "end": 555},
-        {"type": "underline", "target": "card-2", "start": 565, "end": 630}
+        {"type": "circle", "target": "card-0", "pad": 10, "start": 246, "end": 308},
+        {"type": "arrow", "from": "card-0", "to": "card-4", "start": 390, "end": 472},
+        {"type": "circle", "target": "card-4", "pad": 11, "start": 510, "end": 590},
+        {"type": "underline", "target": "footer", "start": 642, "end": 734}
       ]
     },
     {
       "number": "03",
-      "title": "我不想再催你追下一款 AI",
-      "start": 645,
-      "end": 1096,
-      "layout": "grid",
-      "leftTitle": "工具一直在换",
-      "leftItems": ["模型", "平台", "工作流"],
-      "rightTitle": "普通人卡住的还是",
-      "rightItems": ["注册", "使用", "部署", "上线", "域名", "数据库"],
-      "footer": "只讲每一轮都会重复的流程和坑",
+      "title": "第一批问题：工具怎么用？",
+      "start": 765,
+      "end": 990,
+      "layout": "list",
+      "lines": [
+        "这个 AI 工具到底在哪下载？",
+        "下载完咋用？",
+        "网站进不去又咋办？"
+      ],
+      "badge": "01\n工具",
+      "footer": "最基础的一步，也可能卡住一晚上",
       "annotations": [
-        {"type": "underline", "target": "right-title", "start": 720, "end": 790},
-        {"type": "circle", "target": "right-items", "pad": 12, "start": 800, "end": 900},
-        {"type": "underline", "target": "footer", "start": 960, "end": 1060}
+        {"type": "underline", "target": "line-0", "start": 816, "end": 865},
+        {"type": "circle", "target": "line-1", "pad": 10, "start": 876, "end": 923},
+        {"type": "underline", "target": "line-2", "start": 936, "end": 978}
       ]
     },
     {
       "number": "04",
-      "title": "两年前，我就是那个新手",
-      "start": 1096,
-      "end": 1829,
-      "layout": "journey",
-      "cards": [
-        {"text": "不会写代码"},
-        {"text": "第一次用 Cursor"},
-        {"text": "做出第一个项目", "tone": "red"}
+      "title": "第二批问题：该跟 AI 说什么？",
+      "start": 990,
+      "end": 1422,
+      "layout": "list",
+      "lines": [
+        "提示词到底该怎么写？",
+        "第一句话该跟 AI 说什么？",
+        "需求写多详细，它才能听懂？"
       ],
-      "quote": "那一刻真的：",
-      "strong": "“惊为天人”",
-      "footer": "不懂编程，也能把脑子里的想法做出来",
+      "badge": "02\n提示词",
+      "footer": "工具打开了，新的问题才刚出现",
       "annotations": [
-        {"type": "circle", "target": "card-0", "pad": 12, "start": 1220, "end": 1310},
-        {"type": "underline", "target": "card-2", "start": 1470, "end": 1580},
-        {"type": "circle", "target": "quote-strong", "pad": 12, "start": 1660, "end": 1760}
+        {"type": "circle", "target": "line-0", "pad": 11, "start": 1112, "end": 1184},
+        {"type": "underline", "target": "line-1", "start": 1210, "end": 1274},
+        {"type": "circle", "target": "line-2", "pad": 10, "start": 1316, "end": 1394}
       ]
     },
     {
       "number": "05",
-      "title": "网站做完之后，问题才刚开始",
-      "start": 1829,
-      "end": 2731,
-      "layout": "split",
-      "leftLabel": "第一个网站",
-      "leftMain": "怎么给别人用？",
-      "items": ["部署", "国内访问", "域名解析", "GitHub / 数据库"],
-      "footer": "Demo 只是推开门，后面的坑要一个个过",
+      "title": "做出来以后：怎么给别人用？",
+      "start": 1422,
+      "end": 1736,
+      "layout": "list",
+      "lines": [
+        "这个网站咋分享给别人用？",
+        "怎么部署？为什么国内打不开？",
+        "小程序怎么认证、怎么上线？"
+      ],
+      "badge": "03\n上线",
+      "footer": "Demo 做完，不等于项目完成",
       "annotations": [
-        {"type": "circle", "target": "left-main", "pad": 13, "start": 1930, "end": 2040},
-        {"type": "arrow", "from": "left-panel", "to": "right-grid", "start": 2110, "end": 2210},
-        {"type": "circle", "target": "right-grid", "pad": 12, "start": 2360, "end": 2490},
-        {"type": "underline", "target": "footer", "start": 2570, "end": 2680}
+        {"type": "circle", "target": "line-0", "pad": 10, "start": 1492, "end": 1550},
+        {"type": "underline", "target": "line-1", "start": 1570, "end": 1635},
+        {"type": "circle", "target": "line-2", "pad": 10, "start": 1653, "end": 1722}
       ]
     },
     {
       "number": "06",
-      "title": "AI 把你送到下一批问题面前",
-      "start": 2731,
-      "end": 3509,
-      "layout": "contrast",
-      "leftLabel": "AI 帮你快速做出",
-      "leftMain": "第一屏\n第一个 Demo",
-      "rightLabel": "接着出现",
-      "rightMain": "下一批问题",
-      "footer": "我的优势，只是比新手多踩了两年的坑",
+      "title": "功能能用了，界面却真的很丑",
+      "start": 1736,
+      "end": 2258,
+      "layout": "list",
+      "lines": [
+        "这种界面该怎么改？",
+        "怎么让它看起来更舒服？",
+        "怎么更像一个真的产品？"
+      ],
+      "badge": "04\n界面",
+      "footer": "任何一个小问题，都可能让新手卡一晚上",
       "annotations": [
-        {"type": "arrow", "from": "left-panel", "to": "right-panel", "start": 2840, "end": 2940},
-        {"type": "circle", "target": "right-panel", "pad": 11, "start": 2960, "end": 3070},
-        {"type": "underline", "target": "footer", "start": 3220, "end": 3380}
+        {"type": "underline", "target": "line-0", "start": 1840, "end": 1900},
+        {"type": "circle", "target": "line-1", "pad": 10, "start": 1920, "end": 1992},
+        {"type": "underline", "target": "line-2", "start": 2012, "end": 2080},
+        {"type": "circle", "target": "footer", "pad": 11, "start": 2142, "end": 2234}
       ]
     },
     {
       "number": "07",
-      "title": "焦虑会过期，解决办法会留下",
-      "start": 3509,
-      "end": 4873,
-      "layout": "flow",
+      "title": "两年前，我就是那个新手",
+      "start": 2258,
+      "end": 2921,
+      "layout": "journey",
       "cards": [
-        {"text": "遇到问题"},
-        {"text": "问 AI"},
-        {"text": "试办法"},
-        {"text": "失败", "tone": "red"},
-        {"text": "继续改", "tone": "blue"},
-        {"text": "真实复盘", "tone": "red"}
+        {"text": "非计算机专业"},
+        {"text": "不会正经写代码"},
+        {"text": "用 Cursor 做出项目", "tone": "red"}
       ],
-      "footer": "不站在终点装懂，只记录正在经历的过程",
+      "quote": "第一次做出来，我靠：",
+      "strong": "“惊为天人”",
+      "footer": "我当时真的觉得，Cursor 就是天下第一",
       "annotations": [
-        {"type": "underline", "target": "footer", "start": 3650, "end": 3790},
-        {"type": "circle", "target": "card-3", "pad": 11, "start": 3920, "end": 4040},
-        {"type": "arrow", "from": "card-3", "to": "card-4", "start": 4110, "end": 4230},
-        {"type": "circle", "target": "card-5", "pad": 11, "start": 4510, "end": 4660}
+        {"type": "circle", "target": "card-0", "pad": 11, "start": 2330, "end": 2405},
+        {"type": "underline", "target": "card-2", "start": 2520, "end": 2610},
+        {"type": "circle", "target": "quote-strong", "pad": 12, "start": 2690, "end": 2780},
+        {"type": "underline", "target": "footer", "start": 2828, "end": 2900}
       ]
     },
     {
       "number": "08",
-      "title": "第 0 集：真正重要的是下一步",
-      "start": 4873,
-      "end": 5572,
-      "layout": "final",
-      "kicker": "不用被热潮赶着跑",
-      "questions": [
-        "你想用 AI 做什么？",
-        "卡住以后，下一步怎么走？"
-      ],
-      "episode": "下一条：Demo → 产品",
+      "title": "网站做完之后，问题才刚开始",
+      "start": 2921,
+      "end": 3905,
+      "layout": "split",
+      "leftLabel": "第一个教程网站",
+      "leftMain": "怎么给别人用？",
+      "items": ["Vercel 部署", "国内访问", "域名解析", "Git / GitHub", "数据库", "后端"],
+      "footer": "很多原理只懂一点，但怎么做出来，我已经踩得很熟",
       "annotations": [
-        {"type": "circle", "target": "question-0", "pad": 12, "start": 4930, "end": 5050},
-        {"type": "circle", "target": "question-1", "pad": 12, "start": 5110, "end": 5240},
-        {"type": "underline", "target": "episode", "start": 5340, "end": 5500}
+        {"type": "circle", "target": "left-main", "pad": 12, "start": 2986, "end": 3070},
+        {"type": "arrow", "from": "left-panel", "to": "right-grid", "start": 3125, "end": 3210},
+        {"type": "circle", "target": "right-grid", "pad": 11, "start": 3370, "end": 3500},
+        {"type": "underline", "target": "footer", "start": 3745, "end": 3860}
+      ]
+    },
+    {
+      "number": "09",
+      "title": "AI 能快速做出 Demo，但 Demo 只是开始",
+      "start": 3905,
+      "end": 4238,
+      "layout": "contrast",
+      "leftLabel": "AI 帮普通人快速做出",
+      "leftMain": "第一个\nDemo",
+      "rightLabel": "真正让新手停下来的是",
+      "rightMain": "后面一长串\n小问题",
+      "footer": "那些没人仔细讲的小问题，才是新手真正的门槛",
+      "annotations": [
+        {"type": "circle", "target": "left-panel", "pad": 10, "start": 3942, "end": 4010},
+        {"type": "arrow", "from": "left-panel", "to": "right-panel", "start": 4020, "end": 4080},
+        {"type": "circle", "target": "right-panel", "pad": 10, "start": 4090, "end": 4160},
+        {"type": "underline", "target": "footer", "start": 4170, "end": 4225}
+      ]
+    },
+    {
+      "number": "10",
+      "title": "把内容讲给过去的自己",
+      "start": 4238,
+      "end": 5125,
+      "layout": "audience",
+      "lead": "两年前 · 两个月前 · 两天前",
+      "focus": "我只是比完全的新手，多踩了两年的坑",
+      "cards": [
+        {"text": "不只讲工具功能"},
+        {"text": "不只展示一句提示词"},
+        {"text": "记录真实解决过程", "tone": "red"}
+      ],
+      "footer": "遇到问题 → 问 AI → 试办法 → 失败 → 继续改",
+      "annotations": [
+        {"type": "underline", "target": "lead", "start": 4290, "end": 4380},
+        {"type": "circle", "target": "focus", "pad": 12, "start": 4450, "end": 4560},
+        {"type": "underline", "target": "card-2", "start": 4820, "end": 4920},
+        {"type": "circle", "target": "footer", "pad": 11, "start": 4980, "end": 5090}
+      ]
+    },
+    {
+      "number": "11",
+      "title": "Demo 和真正的产品之间还差什么？",
+      "start": 5125,
+      "end": 5986,
+      "layout": "flow",
+      "cards": [
+        {"text": "部署"},
+        {"text": "域名"},
+        {"text": "登录"},
+        {"text": "数据库"},
+        {"text": "支付"},
+        {"text": "用户反馈", "tone": "red"}
+      ],
+      "footer": "很多我也不会，但这刚好就是接下来要拍的内容",
+      "annotations": [
+        {"type": "circle", "target": "card-0", "pad": 10, "start": 5260, "end": 5330},
+        {"type": "arrow", "from": "card-0", "to": "card-5", "start": 5400, "end": 5500},
+        {"type": "circle", "target": "card-5", "pad": 10, "start": 5520, "end": 5600},
+        {"type": "underline", "target": "footer", "start": 5730, "end": 5880}
+      ]
+    },
+    {
+      "number": "12",
+      "title": "这个账号，可能就是给你的",
+      "start": 5986,
+      "end": 6245,
+      "layout": "audience",
+      "lead": "如果你也刚开始用 AI",
+      "focus": "正在把第一个想法做出来",
+      "cards": [
+        {"text": "网站 / 小程序"},
+        {"text": "App / 游戏"},
+        {"text": "第一个 Demo", "tone": "red"}
+      ],
+      "footer": "刚刚出发，也不用一个人摸索",
+      "annotations": [
+        {"type": "underline", "target": "lead", "start": 6005, "end": 6060},
+        {"type": "circle", "target": "focus", "pad": 11, "start": 6080, "end": 6142},
+        {"type": "circle", "target": "card-2", "pad": 10, "start": 6160, "end": 6225}
+      ]
+    },
+    {
+      "number": "13",
+      "title": "第 0 集：Demo 只是开始",
+      "start": 6245,
+      "end": 6543,
+      "layout": "final",
+      "kicker": "下一条",
+      "questions": [
+        "直接从我现在这个 Demo 开始",
+        "它离真正的产品还差什么？"
+      ],
+      "episode": "你卡在哪一步？",
+      "annotations": [
+        {"type": "circle", "target": "question-0", "pad": 11, "start": 6280, "end": 6350},
+        {"type": "underline", "target": "question-1", "start": 6370, "end": 6440},
+        {"type": "circle", "target": "episode", "pad": 12, "start": 6460, "end": 6528}
       ]
     }
   ]

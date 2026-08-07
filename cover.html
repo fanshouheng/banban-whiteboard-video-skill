@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 新手定位封面</title>
+    <link rel="icon" href="data:," />
+    <style>
+      * { box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; margin: 0; overflow: hidden; }
+      body { background: #eee8dc; font-family: "Microsoft YaHei UI", "Microsoft YaHei", sans-serif; }
+      .stage { position: relative; width: 1280px; height: 720px; transform: scale(1.5); transform-origin: 0 0; overflow: hidden; }
+      .background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.28) brightness(1.08) contrast(0.97); }
+      .board { position: absolute; width: 1000px; height: 600px; transform-origin: 0 0; color: #24211f; }
+      .episode { position: absolute; left: 70px; top: 52px; color: #c9362b; font-size: 24px; font-weight: 900; }
+      .rule { position: absolute; left: 70px; top: 100px; width: 650px; height: 2px; background: rgb(36 33 31 / 22%); transform: rotate(-0.25deg); }
+      .headline { position: absolute; left: 92px; top: 130px; margin: 0; font-size: 82px; font-weight: 950; line-height: 1.06; letter-spacing: 0; }
+      .headline .red { position: relative; display: inline-block; margin-top: 14px; color: #c9362b; font-size: 118px; }
+      .headline .red::after {
+        content: "";
+        position: absolute;
+        left: -30px;
+        right: -40px;
+        top: -8px;
+        bottom: -16px;
+        border: 8px solid #c9362b;
+        border-radius: 48% 53% 46% 55%;
+        transform: rotate(-2deg);
+      }
+      .support { position: absolute; left: 105px; top: 430px; margin: 0; font-size: 34px; font-weight: 900; }
+      .support strong { color: #315b78; }
+      .support::after { content: ""; display: block; width: 620px; height: 7px; margin-top: 11px; border-radius: 50%; background: #c9362b; transform: rotate(-1deg); }
+      .corner-note { position: absolute; right: 72px; top: 155px; width: 230px; color: #315b78; font-family: KaiTi, STKaiti, serif; font-size: 31px; font-weight: 900; line-height: 1.35; transform: rotate(3deg); }
+      .teacher { position: absolute; right: 74px; bottom: 42px; width: 104px; height: 143px; object-fit: contain; filter: drop-shadow(2px 3px 2px rgb(0 0 0 / 15%)); }
+      .signature { position: absolute; left: 70px; bottom: 35px; margin: 0; color: rgb(36 33 31 / 43%); font-size: 18px; font-weight: 800; }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <img class="background" src="assets/whiteboard-bg.png" alt="" />
+      <section id="board" class="board">
+        <div class="episode">第 0 集 · AI 新手定位</div>
+        <div class="rule"></div>
+        <h1 class="headline">我可能最懂<br /><span class="red">AI 新手</span></h1>
+        <p class="support">这些坑，我<strong>按顺序踩了一遍</strong></p>
+        <div class="corner-note">工具在换<br />问题没变</div>
+        <img class="teacher" src="assets/teacher-doodle.svg" alt="" />
+        <p class="signature">AI 开发真实记录 · 白板讲课</p>
+      </section>
+    </main>
+    <script>
+      const source = [{ x: 0, y: 0 }, { x: 1000, y: 0 }, { x: 1000, y: 600 }, { x: 0, y: 600 }];
+      const target = [{ x: 151, y: 38 }, { x: 1126, y: 87 }, { x: 1126, y: 635 }, { x: 151, y: 665 }];
+
+      function solve(points, values) {
+        const matrix = points.map((row, index) => [...row, values[index]]);
+        for (let column = 0; column < 8; column += 1) {
+          let pivot = column;
+          for (let row = column + 1; row < 8; row += 1) if (Math.abs(matrix[row][column]) > Math.abs(matrix[pivot][column])) pivot = row;
+          [matrix[column], matrix[pivot]] = [matrix[pivot], matrix[column]];
+          const divisor = matrix[column][column];
+          for (let cell = column; cell <= 8; cell += 1) matrix[column][cell] /= divisor;
+          for (let row = 0; row < 8; row += 1) {
+            if (row === column) continue;
+            const factor = matrix[row][column];
+            for (let cell = column; cell <= 8; cell += 1) matrix[row][cell] -= factor * matrix[column][cell];
+          }
+        }
+        return matrix.map((row) => row[8]);
+      }
+
+      const rows = [];
+      const values = [];
+      source.forEach(({ x, y }, index) => {
+        const { x: u, y: v } = target[index];
+        rows.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); values.push(u);
+        rows.push([0, 0, 0, x, y, 1, -v * x, -v * y]); values.push(v);
+      });
+      const [a, c, e, b, d, f, g, h] = solve(rows, values);
+      document.querySelector("#board").style.transform = `matrix3d(${a}, ${b}, 0, ${g}, ${c}, ${d}, 0, ${h}, 0, 0, 1, 0, ${e}, ${f}, 0, 1)`;
+    </script>
+  </body>
+</html>

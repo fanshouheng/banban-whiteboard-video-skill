@@ -69,6 +69,8 @@ button, input { font: inherit; }
 .board-header { position: absolute; left: 60px; top: 38px; width: 875px; height: 105px; }
 .scene-number { display: inline-block; margin-right: 18px; color: #c9362b; font-size: 22px; font-weight: 900; vertical-align: baseline; }
 .board-header h1 { display: inline; margin: 0; color: #24211f; font-size: 47px; font-weight: 900; line-height: 1.1; letter-spacing: 0; }
+.board-header h1.long-title { font-size: 41px; }
+.board-header h1.extra-long-title { font-size: 36px; }
 .title-rule { width: 630px; height: 2px; margin-top: 16px; background: rgb(36 33 31 / 22%); transform: rotate(-0.25deg); }
 .scene-content { position: absolute; inset: 148px 62px 54px; opacity: 1; }
 
@@ -90,8 +92,9 @@ button, input { font: inherit; }
 .footer-note { position: absolute; left: 70px; right: 70px; bottom: 92px; color: #315b78; font-size: 30px; font-weight: 850; text-align: center; }
 
 .list-layout { display: grid; grid-template-columns: 1fr 320px; gap: 70px; align-items: center; min-height: 330px; }
-.threat-list { color: #24211f; font-size: 31px; font-weight: 850; line-height: 1.9; }
-.round-badge { width: 270px; aspect-ratio: 1; border: 7px solid #c9362b; border-radius: 50%; color: #c9362b; display: grid; place-items: center; font-size: 60px; font-weight: 900; transform: rotate(3deg); }
+.list-layout .footer-note { bottom: -12px; }
+.threat-list { color: #24211f; font-size: 28px; font-weight: 850; line-height: 1.85; }
+.round-badge { width: 270px; aspect-ratio: 1; border: 7px solid #c9362b; border-radius: 50%; color: #c9362b; display: grid; place-items: center; font-size: 52px; font-weight: 900; line-height: 1.08; text-align: center; white-space: pre-line; transform: rotate(3deg); }
 .journey-row { gap: 13px; margin-top: 70px; }
 .journey-layout .footer-note { bottom: -8px; }
 .topic-card { min-width: 150px; padding: 18px 20px; color: #24211f; font-size: 27px; font-weight: 850; text-align: center; }
@@ -99,7 +102,8 @@ button, input { font: inherit; }
 .big-quote strong { color: #c9362b; font-size: 52px; }
 
 .split-layout, .contrast-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; min-height: 330px; }
-.split-layout .footer-note { bottom: -15px; }
+.split-layout .panel, .split-layout .mini-grid { transform: translateY(-26px); }
+.split-layout .footer-note { bottom: -8px; font-size: 26px; }
 .panel { min-height: 225px; padding: 40px; color: #24211f; display: flex; flex-direction: column; justify-content: center; text-align: center; }
 .contrast-layout .panel { min-height: 185px; padding: 28px; transform: translateY(-24px); }
 .contrast-layout .footer-note { bottom: 28px; }
@@ -107,6 +111,8 @@ button, input { font: inherit; }
 .panel-main { margin-top: 18px; font-size: 49px; font-weight: 950; line-height: 1.25; }
 .question { color: #c9362b; font-size: 65px; font-weight: 950; }
 .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.mini-grid.dense { gap: 12px; }
+.mini-grid.dense .grid-card { padding: 12px 8px; font-size: 24px; }
 .grid-card { padding: 20px 14px; color: #24211f; font-size: 28px; font-weight: 900; text-align: center; }
 
 .equation-layout { display: grid; grid-template-columns: 1fr 100px 1fr; align-items: center; min-height: 315px; text-align: center; }
