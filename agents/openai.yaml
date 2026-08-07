@@ -1,0 +1,4 @@
+interface:
+  display_name: "班班白板视频"
+  short_description: "将中文口播与时间轴转换成可验证、可复现的白板讲解视频工程"
+  default_prompt: "Use $banban-whiteboard-video to turn my final Chinese voiceover into a timed whiteboard video."

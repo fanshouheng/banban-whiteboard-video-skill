@@ -1,0 +1,13 @@
+{
+  "name": "banban-whiteboard-video-skill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deterministic Chinese whiteboard video renderer for the Banban Codex Skill",
+  "scripts": {
+    "preview": "node render-video.cjs --preview",
+    "render": "node render-video.cjs"
+  },
+  "dependencies": {
+    "playwright-core": "^1.62.1"
+  }
+}

@@ -1,4 +1,4 @@
-.playwright-cli/
-output/playwright/
-output/*.mp3
-output/*.mp4
+/output/
+/.playwright-cli/
+/.skill-init/
+/node_modules/

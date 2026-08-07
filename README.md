@@ -1,92 +1,72 @@
-# Banban 白板视频
+# 班班白板视频 Skill
 
-这是一个由 ChatCut 成片音频和时间戳驱动的 HTML 白板视频。
+把中文口播做成可复现的 16:9 白板讲解视频：板书持续留在白板上，讲到重点时，小人再移动过去画圈、划线或箭头。
 
-当前版本对应 ChatCut 时间线 `拒绝AI焦虑｜3分钟白板版`，共 8 页，白板主体 `3 分 05.7 秒`。每页大部分板书会直接显示，讲到重点时再由右下角的小人移动过去画圈、划线、画箭头或补字。
+![AI 新手定位白板视频示例](examples/ai-newbie-positioning-cover.png)
 
-## 成片
+## 它解决什么
 
-- 最终视频（含开场）：`output/whiteboard-with-intro.mp4`
-- 白板主体：`output/whiteboard-final.mp4`
-- 音频：`output/voiceover.mp3`
-- 输出规格：`1920 × 1080`、`30 fps`、H.264 + AAC
+- 用 `timeline.json` 管理板书、分镜、时间和批注动作。
+- 用 HTML/CSS 排中文板书，避免生成式图片把汉字画错。
+- 用 SVG 画圈、划线和箭头，并让小人跟随笔迹移动。
+- 用 Playwright 固定帧抓图，再由 FFmpeg 合成 MP4，同一份时间轴可以重复渲染。
 
-音频和视频属于生成文件，已在 `.gitignore` 中排除，不会提交到 Git。
+这不是“整块白板自动手写”。中文正文是稳定排版，手绘感来自重点批注和教师小人。
 
-## 预览
+## 安装
 
-在项目目录启动静态服务器：
+克隆到 Codex 的 Skill 目录：
 
 ```powershell
-python -m http.server 43127
+git clone https://github.com/fanshouheng/banban-whiteboard-video-skill.git "$HOME/.codex/skills/banban-whiteboard-video"
+cd "$HOME/.codex/skills/banban-whiteboard-video"
+npm install
 ```
 
-然后打开：
+系统还需要 Chrome 或 Edge，以及可直接调用的 FFmpeg。
+
+重新打开 Codex 后，可以这样说：
 
 ```text
-http://127.0.0.1:43127
+用 $banban-whiteboard-video，把这段最终口播做成 16:9 中文白板讲解视频。
 ```
 
-页面支持播放、暂停、重播和拖动时间轴，播放时直接使用 `output/voiceover.mp3`。
+## 示例
 
-## 导出
+仓库当前自带一条完整案例：`AI 新手定位`，13 页板书，时长 3 分 38.1 秒。
 
-完整导出需要 Node.js、Chrome 或 Edge、FFmpeg，以及本机 Codex 已安装的 Playwright 运行库。
+![13 页白板分镜](examples/ai-newbie-positioning-boards.png)
 
-先生成关键帧检查图：
+- [20 秒动态预览](examples/ai-newbie-positioning-preview.mp4)
+- [完整时间轴](timeline.json)
+- [小红书 / 抖音发布文案示例](examples/social-post-copy.md)
+
+## 本地预览
+
+把最终音频放到 `output/voiceover.mp3`，然后运行：
 
 ```powershell
-node render-video.cjs --preview
+npm run preview
 ```
 
-检查图保存在 `output/playwright/`。
-
-确认画面后生成完整视频：
+关键帧保存在 `output/playwright/`。确认没有文字拥挤、路径偏移和小人遮挡后，再渲染完整视频：
 
 ```powershell
-node render-video.cjs
+npm run render
 ```
 
-输出会覆盖 `output/whiteboard-final.mp4`。渲染按固定帧号驱动画面，因此同一份 JSON 可以稳定重复生成。
+输出为 `output/whiteboard-ai-newbie-final.mp4`，规格为 1920 x 1080、30 fps、H.264 + AAC。
 
-## 文件结构
+## 核心文件
 
 ```text
-banban/
-|-- index.html                  # 播放界面和白板画布
-|-- styles.css                 # 白板排版、透视画面和小人样式
-|-- app.js                     # 时间轴播放、场景渲染和批注动画
-|-- timeline.json              # 8 页板书内容、时间和批注动作
-|-- render-video.cjs           # Playwright 抓帧并用 FFmpeg 合成
-|-- assets/
-|   |-- whiteboard-bg.png      # 略带侧视角的白板背景
-|   `-- teacher-doodle.svg     # 右下角手绘小人
-`-- output/                    # 本地音频、视频和检查图，不进入 Git
+SKILL.md                     # Codex 工作流与边界
+timeline.json                # 13 页示例的内容、帧范围和批注
+index.html / styles.css      # 白板画布与排版
+app.js                       # 场景、路径和播放逻辑
+render-video.cjs             # 抓帧与 FFmpeg 合成
+assets/                      # 白板和教师小人素材
+examples/                    # 可公开展示的轻量示例
 ```
 
-## 修改内容
-
-日常调整主要改 `timeline.json`：
-
-- `start` / `end`：每页出现的帧范围，按 30 fps 计算。
-- `title` 和各布局字段：页面上预先显示的板书。
-- `annotations`：讲到对应位置时出现的圈、线、箭头或补字。
-- `annotations[].start` / `end`：动作和口播对齐的帧范围。
-- `annotations[].target`：圈或横线要跟随的板书元素，路径会按浏览器实际排版自动生成。
-- `annotations[].from` / `to`：箭头的起点和终点元素。
-- `annotations[].d`：补字动作或没有目标元素时使用的手绘路径。
-
-画面模板放在 `index.html`、`styles.css` 和 `app.js`。更换小人时替换 `assets/teacher-doodle.svg`，并检查 `styles.css` 中 `.drawing-teacher` 的尺寸和偏移，保证笔尖仍能对准路径。
-
-## 当前工作流
-
-1. 在 ChatCut 中删除口误、重复和多余停顿。
-2. 以 ChatCut 最终音频和时间戳为准。
-3. 把口播重点写入 `timeline.json`，设置每页和批注动作的帧范围。
-4. 先运行抽帧检查，再本地导出完整视频。
-
-目前先把单条视频的视觉效果和节奏做稳定。批量生成阶段再把 `timeline.json` 收敛成更严格的板书计划格式，由程序统一校验和排版。
-
-## 素材说明
-
-白板背景和小人素材保存在 `assets/`。第三方素材来源与许可见 `THIRD_PARTY_NOTICES.md` 和 `licenses/`。
+第三方素材来源与许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 和 `licenses/`。本仓库尚未声明整体开源许可证；第三方素材仍遵循其原许可证。

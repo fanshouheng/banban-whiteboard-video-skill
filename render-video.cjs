@@ -2,12 +2,12 @@ const fs = require("fs");
 const http = require("http");
 const path = require("path");
 const { spawn } = require("child_process");
-const { chromium } = require("C:/Users/Admin/.codex/skills/expression-enhancer/node_modules/playwright-core");
+const { chromium } = require("playwright-core");
 
 const root = __dirname;
 const outputDir = path.join(root, "output");
 const audioPath = path.join(outputDir, "voiceover.mp3");
-const videoPath = path.join(outputDir, "whiteboard-final.mp4");
+const videoPath = path.join(outputDir, "whiteboard-ai-newbie-final.mp4");
 const timeline = JSON.parse(fs.readFileSync(path.join(root, "timeline.json"), "utf8"));
 const sourceFps = timeline.fps;
 const renderFps = 15;
