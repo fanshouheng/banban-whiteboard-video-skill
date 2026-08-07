@@ -41,6 +41,16 @@ npm install
 - [完整时间轴](timeline.json)
 - [小红书 / 抖音发布文案示例](examples/social-post-copy.md)
 
+### 几秒动图
+
+每段 5.5–6 秒，960 x 540，适合直接预览白板圈线、箭头和小人移动效果。
+
+| 连续圈划四类新手问题 | 工具换了，问题没变 |
+|---|---|
+| ![连续圈划四类新手问题](examples/01-four-problems.gif) | ![工具流向新手问题](examples/02-tools-to-problem.gif) |
+| 网站做完后，问题才开始 | Demo 到产品还差什么 |
+| ![网站做完后的问题链](examples/03-website-next-problems.gif) | ![Demo 到产品的差距](examples/04-demo-to-product.gif) |
+
 ## 本地预览
 
 把最终音频放到 `output/voiceover.mp3`，然后运行：
